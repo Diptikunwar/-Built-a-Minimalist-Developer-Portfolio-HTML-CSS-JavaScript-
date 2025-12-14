@@ -1,0 +1,411 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dipti Kumari | Developer Portfolio</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ================= ROOT THEME (BLACK & WHITE) ================= */
+        :root {
+            --bg: #0a0a0a;
+            --bg2: #111111;
+            --card: #161616;
+            --text: #f5f5f5;
+            --muted: #b0b0b0;
+            --border: #262626;
+        }
+
+        /* Light mode */
+        body.light {
+            --bg: #ffffff;
+            --bg2: #f7f7f7;
+            --card: #ffffff;
+            --text: #0a0a0a;
+            --muted: #555555;
+            --border: #dddddd;
+        }
+
+        /* ================= GLOBAL ================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Inter, system-ui, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(180deg, var(--bg), var(--bg2));
+            color: var(--text);
+            transition: 0.3s;
+        }
+
+        /* Typography & spacing */
+        h1 {
+            font-size: 56px;
+            line-height: 1.15;
+            margin-bottom: 26px;
+        }
+
+        h2 {
+            font-size: 40px;
+            line-height: 1.2;
+            margin-bottom: 28px;
+        }
+
+        h3 {
+            font-size: 22px;
+            margin-bottom: 14px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            color: var(--muted);
+        }
+
+        section {
+            padding: 140px 24px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* ================= NAV ================= */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: auto;
+            padding: 18px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+        }
+
+        .nav a {
+            margin-left: 22px;
+            font-size: 14px;
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        .nav a:hover {
+            color: var(--text);
+        }
+
+        .toggle {
+            cursor: pointer;
+            margin-left: 20px;
+        }
+
+        /* ================= HERO ================= */
+        .hero {
+            padding: 200px 24px 160px;
+            text-align: center;
+        }
+
+        .btn {
+            padding: 14px 34px;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+            margin: 6px;
+        }
+
+        .primary {
+            background: var(--text);
+            color: var(--bg);
+            font-weight: 600;
+        }
+
+        .secondary {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        /* ================= REVEAL ================= */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* ================= CARDS ================= */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 36px;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 38px;
+        }
+
+        /* ================= LIST ================= */
+        ul {
+            margin-top: 16px;
+            padding-left: 18px;
+            line-height: 1.8;
+        }
+
+        li {
+            margin-bottom: 10px;
+            color: var(--muted);
+            font-size: 17px;
+        }
+
+        /* ================= CTA ================= */
+        .cta {
+            background: var(--text);
+            color: var(--bg);
+            border-radius: 40px;
+            padding: 160px 24px;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 44px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .cta-subtitle {
+            font-size: 19px;
+            max-width: 650px;
+            margin: 0 auto 48px;
+            line-height: 1.7;
+            color: #333;
+        }
+
+        /* ================= FOOTER ================= */
+        footer {
+            padding: 60px 24px;
+            text-align: center;
+            color: var(--muted);
+            border-top: 1px solid var(--border);
+        }
+
+        /* ================= RESPONSIVE ================= */
+        @media(max-width:900px) {
+            h1 {
+                font-size: 40px;
+            }
+
+            h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div class="nav">
+            <div class="logo">Dipti Kumari</div>
+            <div>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#certifications">Certifications</a>
+                <span class="toggle" onclick="toggleMode()">◐</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero reveal">
+        <h1>Frontend & Software Developer</h1>
+        <p>
+            Computer Science undergraduate with practical experience in frontend
+            development, Java-based systems, and Generative AI workflows.
+            Focused on building clean, scalable, and user-friendly applications.
+        </p>
+
+        <!-- BUTTONS -->
+        <a href="https://www.linkedin.com/in/diptikumari" target="_blank">
+            <button class="btn primary">Connect on LinkedIn</button>
+        </a>
+
+        <a href="Dipti_Resume_03.pdf" download>
+            <button class="btn secondary">Download Resume</button>
+        </a>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="reveal">
+        <div class="container">
+            <h2>About Me</h2>
+            <p style="max-width:900px;">
+                I am Dipti Kumari, a Computer Science and Engineering undergraduate at
+                Galgotias University, Greater Noida. My academic foundation includes
+                Web Technology, Computer Networks, Operating Systems, DBMS,
+                Software Engineering, System Design, Data Analytics, and Cyber Security.
+                <br><br>
+                I enjoy transforming ideas into real-world applications by combining
+                clean frontend interfaces, structured backend logic, and efficient
+                data handling with strong attention to detail.
+            </p>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="reveal">
+        <div class="container cards">
+            <div class="card">
+                <h3>Programming Languages</h3>
+                <p>Java, Python, SQL, JavaScript with strong OOP fundamentals.</p>
+            </div>
+            <div class="card">
+                <h3>Web Technologies</h3>
+                <p>HTML, CSS, JavaScript, React, Node.js with responsive design focus.</p>
+            </div>
+            <div class="card">
+                <h3>Frameworks & Libraries</h3>
+                <p>Spring Boot and Bootstrap for scalable development.</p>
+            </div>
+            <div class="card">
+                <h3>Developer Tools</h3>
+                <p>GitHub and Visual Studio Code for version control and debugging.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="reveal">
+        <div class="container">
+            <h2>Experience</h2>
+
+            <div class="card">
+                <h3>Generative AI Intern — Google Cloud</h3>
+                <p>July 2024 – September 2024 | Remote</p>
+                <ul>
+                    <li>Worked with Gemini AI for text, image generation, and translation.</li>
+                    <li>Integrated Autoencoders, VAEs, and GANs into workflows.</li>
+                    <li>Studied architecture and deployment of LLMs.</li>
+                </ul>
+            </div>
+
+            <div class="card" style="margin-top:48px;">
+                <h3>Android Developer Intern — Google for Developers</h3>
+                <p>October 2024 – December 2024 | Remote</p>
+                <ul>
+                    <li>Built basic Android UI using Java and XML.</li>
+                    <li>Worked with Activities, Intents, and Layouts.</li>
+                    <li>Understood Android project structure.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="reveal">
+        <div class="container">
+            <h2>Projects</h2>
+
+            <div class="card">
+                <h3>PlanSphere — Personal Productivity Web App</h3>
+                <p>HTML, CSS, JavaScript, LocalStorage</p>
+                <ul>
+                    <li>Daily planning, habit tracking, budgeting, and journaling.</li>
+                    <li>Gender-specific health tracking modules.</li>
+                    <li>Offline data persistence using localStorage.</li>
+                </ul>
+            </div>
+
+            <div class="card" style="margin-top:48px;">
+                <h3>Java Task Manager</h3>
+                <p>Core Java, File I/O, OOP</p>
+                <ul>
+                    <li>Console-based task manager with CRUD operations.</li>
+                    <li>File persistence using Java Serialization.</li>
+                    <li>Clean and maintainable code structure.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications" class="reveal">
+        <div class="container">
+            <h2>Certifications</h2>
+            <ul>
+                <li>Generative AI — Google Cloud</li>
+                <li>Python Full Stack — AICTE</li>
+                <li>Database Programming with SQL — Oracle</li>
+                <li>Mastering Modern Java Programming — Udemy</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta reveal">
+        <h2 class="cta-title">Built to be shared.</h2>
+        <p class="cta-subtitle">
+            A clean, black-and-white portfolio that reflects skills,
+            experience, and attention to detail.
+        </p>
+
+        <a href="https://www.linkedin.com/in/diptikumari" target="_blank">
+            <button class="btn primary">Connect on LinkedIn</button>
+        </a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2025 Dipti Kumari • HTML • CSS • JavaScript
+    </footer>
+
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle("light");
+        }
+
+        const reveals = document.querySelectorAll(".reveal");
+        window.addEventListener("scroll", () => {
+            reveals.forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 120) {
+                    el.classList.add("active");
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
